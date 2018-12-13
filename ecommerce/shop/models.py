@@ -21,16 +21,17 @@ class Product(models.Model):
 	nome = models.CharField(max_length=100, db_index=True)
 	#slug possibilita a criacao de uma url amigavel:
 	slug = models.SlugField(max_length=100, db_index=True)
-	description = models.TextField("teste") #(blank=True)
+	description = models.TextField("Descricao") #(blank=True)
 	price = models.DecimalField(max_digits=5, decimal_places=2)
 	available = models.BooleanField(default=True)
 	available = models.PositiveIntegerField()
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now=True)
-	image = models.ImageField(upload_to='products/%Y/%m/%d', blank=True)
+	image = models.ImageField(upload_to='produtos/%Y/%m/%d', blank=True)
 
 	class Meta:
 		ordering = ('nome', )
+		verbose_name = ('produto')
 		#otimiza a performance de consultas:
 		index_together = (('id', 'slug'),)
 	
