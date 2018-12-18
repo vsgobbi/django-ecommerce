@@ -1,0 +1,17 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+{% block title %}
+    Finalizado | Obrigado!
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row" style="margin-top: 6%">
+            <div class="col-md-8 col-md-offset-2">
+                <h3 class="page-header">Pedido finalizado, obrigado por comprar conosco!
+                </h3>
+                <p>Seu pedido foi finalizado com sucesso. Numero do pedido: <strong>{{ order.id }}</strong>.</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
