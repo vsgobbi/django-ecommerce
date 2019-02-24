@@ -1,5 +1,5 @@
 ### 09/12/2018 por @Vitor Sgobbi
-"GPL licenced
+"GPL license"
 ### Bibliotecas e frameworks utilizados 
 * django pillow Python3.6 pip
 
