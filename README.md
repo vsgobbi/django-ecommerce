@@ -1,7 +1,7 @@
 ### 09/12/2018 por @Vitor Sgobbi
 "GPL licenced
 ### Bibliotecas e frameworks utilizados 
-## django pillow Python3.6 pip
+> django pillow Python3.6 pip
 
 ## Inicializar novo ambiente virtual utilizando Python3.6
 virtualenv -p /usr/local/bin/python3.6 venv
