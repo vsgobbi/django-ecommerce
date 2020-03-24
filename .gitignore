@@ -1,0 +1,17 @@
+# pycharm and compiled files
+*.pyc
+*.idea/*
+*.DS_Store
+
+# folder used by virtualenv
+env
+venv
+.env
+.venv
+
+# ignore info from all dependencies
+*.dist-info
+*.egg-info
+
+# ignore dist folder
+dist
