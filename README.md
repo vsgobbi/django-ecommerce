@@ -13,3 +13,7 @@
 > pip --version
 ## Then install requirements
 > pip install -r requirements.txt
+
+## Run django environment
+> cd ecommerce/
+> python manage.py runserver
