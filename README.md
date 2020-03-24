@@ -17,3 +17,7 @@
 ## Run django environment
 > cd ecommerce/
 > python manage.py runserver
+
+## Run django migration
+> cd ecommerce/
+> python manage.py migrate
