@@ -18,7 +18,7 @@ except:
 
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['name', 'slug', 'price', 'available', 'created_at', 'updated_at']
+    list_display = ['name', 'slug', 'last_price', 'price', 'available', 'created_at', 'updated_at']
     list_filter = ['available', 'created_at', 'updated_at']
     list_editable = ['price', 'available']
     prepopulated_fields = {'slug': ('name',)}
@@ -26,6 +26,6 @@ class ProductAdmin(admin.ModelAdmin):
 
 try:
     admin.site.register(Product, ProductAdmin)
-    logger.info("Novo produto criado %s", Product)
+    logger.info("Nova promocao criada %s", Product)
 except:
-    logger.exception("Nao foi possivel criar produto")
+    logger.exception("Nao foi possivel criar promocao")

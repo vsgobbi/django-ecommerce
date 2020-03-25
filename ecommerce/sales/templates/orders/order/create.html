@@ -1,24 +1,14 @@
 {% extends 'shop/base.html' %}
 {% load static %}
 {% block title %}
-    Seu carrinho| Pedido
+    Finalizar| Pedido
 {% endblock %}
 
 {% block content %}
-    <div class="container">
-        <div class="row" style="margin-top: 6%">
-            <div class="col-md-8">
-                <h4 class="page-header">Finalizar</h4>
-                <form action="." method="post">
-                    {% csrf_token %}
-                    {{ form.as_p }}<br>
-                    <input type="submit" class="btn btn-primary" value="Submit order">
-                </form>
-            </div>
-            <div class="col-md-4">
-                <div class="page-header">
-                    Pedido
-                </div>
+    <div class="container float-right">
+        <div class="row" style="margin-top: auto; margin-right: 60%; margin-bottom: auto;">
+
+            <div class="col-md-9">
                 <ul class="list-group">
                     {% for item in cart %}
                         <li class="list-group-item">
@@ -29,8 +19,21 @@
 
                 <li class="list-group-item active">Total : R$ {{ cart.get_total_price }}</li>
                 </ul>
-
+                <br>
             </div>
+
+            <div class="col-6 align-self-center">
+                <h4 class="page-header">Finalizar</h4>
+                <form action="." method="post">
+                    <div class="form-group" class="form-control is-valid">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input type="submit" class="btn btn-primary" value="Enviar pedido">
+                    <div class="valid-feedback">Dados salvos com sucesso!</div>
+                    </div>
+                </form>
+            </div>
+
         </div>
     </div>
 {% endblock %}

@@ -16,6 +16,7 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]']
 
 # Application definition
 INSTALLED_APPS = [
+    'sales.apps.SalesConfig',
     'shop.apps.ShopConfig',
     'cart.apps.CartConfig',
     'orders.apps.OrdersConfig',
@@ -27,11 +28,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'knox',
     'register.apps.RegisterConfig', 
-    #'django_db_logger',
-    #'djangodblog', #desatualizado 
-    #'djangosecure',
     'sslserver',
     'rest_framework',
+    #'djangosecure',
     #'users',
 ]
 
@@ -72,10 +71,10 @@ TEMPLATES = [
 ]
 
 REST_FRAMEWORK = {
-	'DEFAULT_AUTHENTICATION_CLASSES': ('knox.auth.TokenAuthentication',),
-	'DEFAULT_PERMISSION_CLASSES': [
-		'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-	]
+    'DEFAULT_AUTHENTICATION_CLASSES': ('knox.auth.TokenAuthentication',),
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
 }
 '''
 #Configs para django secure utilizando SSL
@@ -88,12 +87,7 @@ SESSION_COOKIE_SECURE = True
 SESSION_COOKIE_HTTPONLY = True
 '''
 
-
-#WSGI_APPLICATION = 'settings.wsgi.application'
-WSGI_APPLICATION = 'settings.wsgi.application'
-
-# Database
-# https://docs.djangoproject.com/en/2.1/ref/settings/#databases
+WSGI_APPLICATION = "settings.wsgi.application"
 
 DATABASES = {
     'default': {
@@ -121,34 +115,31 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-#Config Django db loger
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'formatters': {
-        'verbose': {
-            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
-        },
-        'simple': {
-            'format': '%(levelname)s %(asctime)s %(message)s'
-        },
-    },
-    'handlers': {
-        'db_log': {
-            'level': 'DEBUG',
-            'class': 'django_db_logger.db_log_handler.DatabaseLogHandler'
-        },
-    },
-    'loggers': {
-        'db': {
-            'handlers': ['db_log'],
-            'level': 'DEBUG'
-        }
-    }
-}
-
-# Internationalization
-# https://docs.djangoproject.com/en/2.1/topics/i18n/
+# # Config Django db logger
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': False,
+#     'formatters': {
+#         'verbose': {
+#             'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+#         },
+#         'simple': {
+#             'format': '%(levelname)s %(asctime)s %(message)s'
+#         },
+#     },
+#     'handlers': {
+#         'console': {
+#             'level': 'DEBUG',
+#             'class': 'django_db_logger.db_log_handler.DatabaseLogHandler'
+#         },
+#     },
+#     'loggers': {
+#         'db': {
+#             'handlers': ['db_log'],
+#             'level': 'DEBUG'
+#         }
+#     }
+# }
 
 LANGUAGE_CODE = 'en-us'
 
@@ -168,5 +159,5 @@ CART_SESSION_ID = 'cart'
 STATIC_URL = '/static/'
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'products/') #faz o upload das imagens de modo dinamico
+MEDIA_ROOT = os.path.join(BASE_DIR, 'products/')  # Create dinamic images
 

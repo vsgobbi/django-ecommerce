@@ -8,7 +8,7 @@
 {% block content %}
     <div class="container">
         <div class="row" style="margin-top: 6%">
-        <h3>Seu carrinho de compras:
+        <h3>Carrinho de compras:
             <span class="badge pull-right">
                 {% with totail_items=cart|length %}
                     {% if cart|length > 0 %}
@@ -48,11 +48,11 @@
                                     {% csrf_token %}
                                     {{ item.update_quantity_form.quantity }}
                                     {{ item.update_quantity_form.update }}
-                                    <input type="submit" value="Update" class="btn btn-info">
+                                    <input type="submit" value="Atualizar" class="btn btn-info">
                                 </form>
                             </td>
                             <td>
-                                <a href="{% url "cart:cart_remove" product.id %}">Remove</a>
+                                <a href="{% url "cart:cart_remove" product.id %}">Remover</a>
                             </td>
                             <td>R$ {{ item.price }}</td>
                             <td>R$ {{ item.total_price }}</td>
@@ -68,7 +68,7 @@
             </table>
         <p class="text-right">
             <a href="{% url "shop:product_list" %}" class="btn btn-default">Continuar comprando</a>
-            <a href="{% url "orders:order_create" %}" class="btn btn-primary">Fazer checkout</a>
+            <a href="{% url "orders:order_create" %}" class="btn btn-primary">Finalizar pedido</a>
         </p>
         </div>
     </div>

@@ -1,10 +1,10 @@
 from django.conf.urls import url
-from .views import product_detail, product_list
+from .views import sales_detail, sales_list
 
-app_name = 'shop'
+app_name = "sales"
 
 urlpatterns = [
-    url(r'^$', product_list, name='product_list'),
-    url(r'^(?P<category_slug>[-\w]+)/$', product_list, name='product_list_by_category'),
-    url(r'^(?P<id>\d+)/(?P<slug>[-\w]+)/$', product_detail, name='product_detail'),
+    url(r'^$', sales_list, name='sales_list'),
+    url(r'^(?P<category_slug>[-\w]+)/$', sales_list, name='sales_list_by_category'),
+    url(r'^(?P<id>\d+)/(?P<slug>[-\w]+)/$', sales_detail, name='sales_detail'),
 ]

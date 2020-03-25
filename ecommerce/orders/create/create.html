@@ -1,18 +1,18 @@
 {% extends 'shop/base.html' %}
 {% load static %}
 {% block title %}
-    Seu carrinho| Pedido
+    Meu carrinho| Pedido
 {% endblock %}
 
 {% block content %}
     <div class="container">
-        <div class="row" style="margin-top: 6%">
+        <div class="row" style="margin-top: 4%">
             <div class="col-md-8">
                 <h4 class="page-header">Finalizar</h4>
                 <form action="." method="post">
                     {% csrf_token %}
                     {{ form.as_p }}<br>
-                    <input type="submit" class="btn btn-primary" value="Submit order">
+                    <input type="submit" class="btn btn-primary" value="Enviar pedido">
                 </form>
             </div>
             <div class="col-md-4">
