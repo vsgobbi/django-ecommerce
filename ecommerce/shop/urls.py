@@ -1,13 +1,10 @@
 from django.conf.urls import url
-from . import views
+from .views import product_detail, product_list
 
 app_name = 'shop'
 
-#exemplo Django urls
 urlpatterns = [
-    url(r'^$', views.product_list, name='product_list'),
-    url(r'^(?P<category_slug>[-\w]+)/$', views.product_list, name='product_list_by_category'),
-    url(r'^(?P<id>\d+)/(?P<slug>[-\w]+)/$', views.product_detail, name='product_detail'),
+    url(r'^$', product_list, name='product_list'),
+    url(r'^(?P<category_slug>[-\w]+)/$', product_list, name='product_list_by_category'),
+    url(r'^(?P<id>\d+)/(?P<slug>[-\w]+)/$', product_detail, name='product_detail'),
 ]
-
-#urlpatterns e o namespace utilizado para a aplicacao
