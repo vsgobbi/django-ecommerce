@@ -13,11 +13,11 @@
 > pip --version
 ## Then install requirements
 > pip install -r requirements.txt
-
 ## Run django migration
 > cd ecommerce/
 > python manage.py migrate
-
+## Create django administrator 
+> python manage.py createsuperuser
 ## Run django environment
 > python manage.py runserver
 

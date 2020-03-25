@@ -1,4 +1,4 @@
-{% extends 'shop/base.html' %}
+{% extends 'sales/base.html' %}
 {% load static %}
 {% block title %}
     {% if category %}{{ category.name }} {% else %} Produtos {% endif %}
@@ -16,12 +16,13 @@
                       <div class="col-md-4">
                         <div class="thumbnail">
                             <a href="{{ product.get_absolute_url }}">
-                                <img src="{% if product.image %} {{ product.image.url }} {% else %} {% static 'img/default.jpg' %} {% endif %}" alt="..." style="height: 100px; width: auto">
+                                <img src="{% if product.image %} {{ product.image.url }} {% else %}
+                                 {% static 'img/default.jpg' %} {% endif %}" alt="..." style="height: 100px; width: auto">
                             </a>
                             <div class="caption">
-                                <h1 class="text-center">
+                                <h3 class="text-center">
                                     <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
-                                </h1>
+                                </h3>
                                 <p class="text-center">R$ {{ product.price }}</p>
                             </div>
                         </div>

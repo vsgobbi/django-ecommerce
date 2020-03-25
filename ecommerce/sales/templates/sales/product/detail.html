@@ -1,4 +1,4 @@
-{% extends 'shop/base.html' %}
+{% extends 'sales/base.html' %}
 {% load static %}
 {% block title %}
     {% if category %}{{ category.name }} {% else %} Produtos {% endif %}
@@ -15,11 +15,14 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="col-md-6 text-center">
-                            <img src="{% if product.image %} {{ product.image.url }} {% else %} {% static 'img/default.jpg' %} {% endif %}" alt="..." style="height: 170px; width: auto">
+                            <img src="{% if product.image %} {{ product.image.url }} {% else %}
+                             {% static 'img/default.jpg' %} {% endif %}" alt="..." style="height: 200px; width: auto">
                         </div>
                         <div class="col-md-9" style="padding-left: 40px">
-                            <h4>{{ product.name }}</h4>
+                            <h3>{{ product.name }}</h3>
                             <h6><a href="{{ product.category.get_absolute_url }}">{{ product.category }}</a></h6>
+                            <p class="text-muted" style="webkit-text-decoration-line: line-through;
+                            text-decoration-line: line-through">R$ {{ product.last_price }}</p>
                             <p class="text-muted">R$ {{ product.price }}</p>
                             <form action="{% url "cart:cart_add" product.id %}" method="post">
                                 {% csrf_token %}
@@ -32,11 +35,9 @@
                 </div>
               </div>
 
-
-          </div><!-- /.blog-post -->
-
-        </div><!-- /.blog-main -->
-      </div><!-- /.row -->
+          </div>
+        </div>
+      </div>
 
     </div><!-- /.container -->
 {% endblock %}
