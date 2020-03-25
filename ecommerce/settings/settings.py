@@ -9,7 +9,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'ap(d266l*zkt^saf)+(*ki**q#(g9&=8(+ps20@d26i!b5-%9^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 #ALLOWED_HOSTS = []
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]']
@@ -51,7 +51,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'ecommerce.urls'
+ROOT_URLCONF = 'settings.urls'
 
 TEMPLATES = [
     {
@@ -89,8 +89,8 @@ SESSION_COOKIE_HTTPONLY = True
 '''
 
 
-#WSGI_APPLICATION = 'ecommerce.wsgi.application'
-WSGI_APPLICATION = 'ecommerce.wsgi.application'
+#WSGI_APPLICATION = 'settings.wsgi.application'
+WSGI_APPLICATION = 'settings.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
