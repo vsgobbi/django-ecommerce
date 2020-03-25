@@ -16,12 +16,14 @@
                       <div class="col-md-4">
                         <div class="thumbnail">
                             <a href="{{ product.get_absolute_url }}">
-                                <img src="{% if product.image %} {{ product.image.url }} {% else %} {% static 'img/default.jpg' %} {% endif %}" alt="..." style="height: 100px; width: auto">
+                                <img src="{% if product.image %} {{ product.image.url }}
+                                {% else %} {% static 'img/default.jpg' %} {% endif %}"
+                                class="rounded mx-auto d-block" alt="..." style="height: 160px; width: auto;">
                             </a>
                             <div class="caption">
-                                <h1 class="text-center">
+                                <h4 class="text-center">
                                     <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
-                                </h1>
+                                </h4>
                                 <p class="text-center">R$ {{ product.price }}</p>
                             </div>
                         </div>
