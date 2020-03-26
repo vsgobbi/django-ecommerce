@@ -16,29 +16,30 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]']
 
 # Application definition
 INSTALLED_APPS = [
-    'sales.apps.SalesConfig',
-    'shop.apps.ShopConfig',
-    'cart.apps.CartConfig',
-    'orders.apps.OrdersConfig',
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'knox',
-    'register.apps.RegisterConfig', 
-    'sslserver',
-    'rest_framework',
-    #'djangosecure',
-    #'users',
+    "sales.apps.SalesConfig",
+    "shop.apps.ShopConfig",
+    "cart.apps.CartConfig",
+    "register.apps.RegisterConfig",
+    "orders.apps.OrdersConfig",
+    # "unused_accounts.apps.AccountsConfig",
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+    "knox",
+    "sslserver",
+    "rest_framework",
+    #"djangosecure",
 ]
 
-#AUTH_USER_MODEL = 'users.CustomUser'
-#AUTH_USER_MODEL = 'accounts.CustomUser'
-#AUTH_USER_MODEL = 'accounts.models.User'
-#AUTH_USER_MODEL = 'accounts.models.CustomUser'
-#AUTH_USER_MODEL = 'accounts.User'
+# AUTH_USER_MODEL = 'auth.User'
+# AUTH_USER_MODEL = 'users.CustomUser'
+# AUTH_USER_MODEL = 'unused_accounts.CustomUser'
+# AUTH_USER_MODEL = 'unused_accounts.models.User'
+# AUTH_USER_MODEL = 'unused_accounts.models.CustomUser'
+# AUTH_USER_MODEL = 'unused_accounts.User'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
