@@ -1,18 +1,24 @@
-{% extends 'base.html' %}
+{% extends 'shop/base.html' %}
+{% load static %}
+{% load bootstrap_tags %}
+{% block title %}
+    Cadastro| Novo usuário
+{% endblock %}
 
 {% block content %}
-<h2>Novo cadastro</h2>
- <form method="post">
-   {% csrf_token %}
-   {% for field in form %}
-     <div>
-       {{ field.label_tag }}<br>
-       {{ field }}
-       {% for error in field.errors %}
-         <p style="color: red">{{ error }}</p>
-       {% endfor %}
-     </div>
-   {% endfor %}
-   <button type="submit">Cadastrar</button>
- </form>
-{% endblock %}
+  <div class="form-group col-md-7"
+       style="background-color:pink; margin-left: 5%; flex-basis:100px; ">
+    <h3>Novo cadastro</h3>
+        <form id="register_user" action="." method="post" role="form"
+        style="display: flex; flex-wrap: wrap;">
+         {% csrf_token %}<br>
+         {{ form|as_bootstrap }}
+                {{ field.label_tag }}<br>
+                {{ field }}<br>
+           {% for error in field.errors %}
+             <p style="color: red">{{ error }}</p>
+           {% endfor %}
+        </form>
+           <p><br><button type="submit" class="btn btn-primary">Cadastrar</button></p>
+        </div>
+    {% endblock %}

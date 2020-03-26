@@ -25,7 +25,7 @@ def validate_phone_number(phone_number):
 GENDER_CHOICES = (
     ("M", translate("Masculino")),
     ("F", translate("Feminino")),
-    ("N", translate("None of above")),
+    ("N", translate("Não declarar")),
 )
 
 

@@ -6,7 +6,13 @@ from .models import validate_cep, validate_cnpj, validate_phone_number, GENDER_C
 class RegisterForm(forms.Form):
     name = forms.CharField(label=translate("Nome"))
     last_name = forms.CharField(label=translate("Sobrenome"))
-    gender = forms.ChoiceField(choices=GENDER_CHOICES, initial="M", widget=forms.Select(), required=True)
+    gender = forms.ChoiceField(
+        choices=GENDER_CHOICES,
+        label=translate("Gênero"),
+        initial="M",
+        widget=forms.Select(),
+        required=True
+    )
     login = forms.CharField(label=translate("Usuário"))
     email = forms.CharField(label="E-mail")
     phone_number = forms.CharField(label=translate("Celular"), validators=[validate_phone_number])
