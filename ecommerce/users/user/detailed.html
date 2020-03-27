@@ -1,0 +1,36 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+{% block title %}
+    Minha conta | Usuário
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row" style="margin-top: 6%">
+            <div class="col-md-8 col-md-offset-2">
+                <h3 class="page-header">Informações pessoais: <br></h3>
+
+                <p><strong>{{ user.name }}</strong>.</p>
+                <p><strong>{{ user.last_name }}</strong>.</p>
+                <p><strong>{{ user.cpf }}</strong>.</p>
+                <p><strong>{{ user.e-mail }}</strong>.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row" style="margin-top: 6%">
+            <div class="col-md-8 col-md-offset-2">
+                <h3 class="page-header">Endereço cadastro: <br></h3>
+
+                <p><strong>{{ address.name }}</strong>.</p>
+                <p><strong>{{ address.addressLine1 }}</strong>.</p>
+                <p><strong>{{ address.addressLine2 }}</strong>.</p>
+                <p><strong>{{ address.cep }}</strong>.</p>
+                <p><strong>{{ address.city }}</strong>.</p>
+                <p><strong>{{ address.state }}</strong>.</p>
+                <p><strong>{{ user.e-mail }}</strong>.</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

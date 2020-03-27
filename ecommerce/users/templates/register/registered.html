@@ -1,0 +1,21 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+{% block title %}
+    Usuário | Cadastrado
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row" style="margin-top: 6%">
+            <div class="col-md-8 col-md-offset-2">
+                <h3 class="page-header">Usuário cadastrado com sucesso, pode contar conosco!
+                </h3>
+                <h4><p>Verifique seus dados: <br></p></h4>
+                <p>Nome: <strong>{{ user.name }}</strong> <strong>{{ user.last_name }}</strong></p>
+                <p>CPF: <strong>{{ user.cpf }}</strong></p>
+                <p>E-mail: <strong>{{ user.email }}</strong></p>
+                <p>Celular: <strong>{{ user.phone_number }}</strong></p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

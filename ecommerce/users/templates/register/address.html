@@ -2,14 +2,14 @@
 {% load static %}
 {% load bootstrap_tags %}
 {% block title %}
-    Cadastro| Novo usuário
+    Cadastro | Novo Endereço
 {% endblock %}
 
 {% block content %}
   <div class="form-group col-md-7"
        style="background-color:pink; margin-left: 5%; flex-basis:100px; ">
-    <h3>Novo cadastro</h3>
-        <form id="register_user" action="." method="post" role="form"
+    <h3>Novo endereço</h3>
+        <form id="register_address" action="." method="post" role="form"
         style="display: flex; flex-wrap: wrap;">
          {% csrf_token %}<br>
          {{ form|as_bootstrap }}
@@ -18,7 +18,7 @@
            {% for error in field.errors %}
              <p style="color: red">{{ error }}</p>
            {% endfor %}
+        <input type="submit" class="btn btn-primary" value="Cadastrar" style="width: 120px;">
         </form>
-           <p><br><button type="submit" class="btn btn-primary">Cadastrar</button></p>
         </div>
     {% endblock %}

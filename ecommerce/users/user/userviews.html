@@ -1,0 +1,43 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+{% block title %}
+    Minha Conta | Usuário
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row" style="margin-top: 6%">
+
+            <div class="col-md-8 col-md-offset-2">
+                <h4 class="page-header">Meus dados: <br></h4>
+                <p>Nome: <strong>{{ user.name }}</strong> <strong>{{ user.last_name }}</strong></p>
+                <p>CPF: <strong>{{ user.cpf }}</strong></p>
+                <p>E-mail: <strong>{{ user.email }}</strong></p>
+                <p>Celular: <strong>{{ user.phone_number }}</strong></p>
+            </div>
+
+
+            <div class="col-md-8 col-md-offset-2">
+                <h3 class="page-header"> Meus pedidos:</h3>
+
+                <table class="table table-striped table-hover">
+                <thead style="background-color: #5AC8FA">
+                {% for order in orders %}
+                {% with product=item.product  %}
+                <tr>
+                    <td>
+                        <a href="{{ product.get_absolute_url }}">
+                            <img src="{% if product.image %} {{ product.image.url }}
+                            {% else %} {% static 'img/default.jpg' %} {% endif %}"
+                                 alt="..." style="height: 130px; width: auto">
+                        </a>
+                    </td>
+                    <td>{{ product.name }}</td>
+                </tr>
+                {% endwith %}
+                {% endfor %}
+            </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
