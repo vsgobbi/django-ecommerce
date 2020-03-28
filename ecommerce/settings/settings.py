@@ -19,7 +19,7 @@ INSTALLED_APPS = [
     "sales.apps.SalesConfig",
     "shop.apps.ShopConfig",
     "cart.apps.CartConfig",
-    "register.apps.RegisterConfig",
+    "users.apps.UsersConfig",
     "orders.apps.OrdersConfig",
     "django.contrib.admin",
     "django.contrib.auth",
@@ -65,7 +65,6 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'cart.context_processors.cart',
-                #'orders.models.Order',
             ],
         },
     },
@@ -100,6 +99,11 @@ DATABASES = {
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
+
+PASSWORD_HASHERS = [
+    'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+    'users.passwordhasher.PBKDF2WrappedSHA1PasswordHasher',
+]
 
 AUTH_PASSWORD_VALIDATORS = [
     {
