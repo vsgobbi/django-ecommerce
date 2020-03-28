@@ -3,41 +3,43 @@
 {% block title %}
     {% if category %}{{ category.name }} {% else %} Produtos {% endif %}
 {% endblock %}
-
 {% block content %}
    <div class="container">
-      <div class="row" style="margin-top: 2%">
+        <div class="col-md-9">
+            <div class="col-md-9 text-center">
+                <a href="{{ product.image.url }}" data-toggle="lightbox">
+                    <img src="{% if product.image %} {{ product.image.url }}
+                     {% else %} {% static 'img/default.jpg' %} {% endif %}"
+                         class="img-fluid"
+                         alt="..." style="height: 220px; width: auto, align: centered;">
+                </a>
+            </div>
 
-        <div class="col-sm-12 blog-main" style="padding-left: 60px">
-
-          <div class="blog-post">
-              <div class="row">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="col-md-6 text-center">
-                            <img src="{% if product.image %} {{ product.image.url }}
-                             {% else %} {% static 'img/default.jpg' %} {% endif %}" alt="..." style="height: 180px; width: auto">
-                        </div>
-                        <div class="col-md-9">
-                            <h4>{{ product.name }}</h4>
-                            <h6><a href="{{ product.category.get_absolute_url }}">{{ product.category }}</a></h6>
-                            <p class="text-muted">R$ {{ product.price }}</p>
-                            <form action="{% url "cart:cart_add" product.id %}" method="post">
-                                {% csrf_token %}
-                                {{ cart_product_form }}
-                                <input type="submit" value="Adicionar" class="btn btn-primary">
-                            </form>
-                            <p>{{ product.description|safe|linebreaksbr }}</p>
-                        </div>
-                    </div>
+            <div class="col-md-9" style="text-align:center; font-size:90%;">
+                <h4>{{ product.name }}</h4>
+                <h6><a href="{{ product.category.get_absolute_url }}">{{ product.category }}</a></h6>
+                {% if product.last_price %}
+                <p class="text-muted" style="webkit-text-decoration-line: line-through;
+                text-decoration-line: line-through">R$ {{ product.last_price }}</p>
+                <p class="text-muted">R$ {{ product.price }}</p>
+                {% else %}
+                <p class="text-muted">R$ {{ product.price }}</p>
+                {% endif %}
+                <form action="{% url "cart:cart_add" product.id %}" method="post">
+                <div class="form-check" style="text-align: center; font-size: 95%;">
+                    {% csrf_token %}
+                    {{ cart_product_form }}
+                    <input type="submit" value="Adicionar" class="btn btn-primary">
                 </div>
-              </div>
+                <div class="col-md-12" style="text-align:center;
+                flex-wrap: wrap;
+                font-size:85%;">
+                    <strong><br>Descrição:</strong>
+                    {{ product.description|safe|linebreaksbr }}.
+                </div>
+                </form>
 
-
-          </div><!-- /.blog-post -->
-
-        </div><!-- /.blog-main -->
-      </div><!-- /.row -->
-
+            </div>
+        </div>
     </div><!-- /.container -->
 {% endblock %}

@@ -30,17 +30,14 @@
                       </div>
                   {% endfor %}
               </div>
-
-
-          </div><!-- /.blog-post -->
-
-        </div><!-- /.blog-main -->
+          </div>
+        </div>
 
         <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
           <div class="sidebar-module">
             <h4>Categorias</h4>
             <ol class="list-unstyled">
-              <li {% if not category %} class="active"{% endif %}><a href="{% url 'shop:product_list' %}">All</a></li>
+              <li {% if not category %} class="active"{% endif %}><a href="{% url 'shop:product_list' %}">Todos</a></li>
             {% for c in categories %}
 
               <li {% if category.slug == c.slug %} class="active"{% endif %}>
@@ -49,9 +46,7 @@
             {% endfor %}
             </ol>
           </div>
-        </div><!-- /.blog-sidebar -->
-
+        </div>
       </div><!-- /.row -->
-
     </div><!-- /.container -->
 {% endblock %}

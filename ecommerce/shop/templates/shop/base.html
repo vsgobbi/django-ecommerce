@@ -11,15 +11,16 @@
 {% include 'shop/navbar.html' %}
 
 <div class="container">
-    <div class="row" style="margin-top: 3%; margin-left: 70%;">
-         <button class="btn btn-info pull-right">
+    <div class="row" style="margin-top: 3%; margin-left: 55%;">
+         <button class="btn btn-info pull-right menu" style="max-width: 300px; text-align: center;">
+            <img src="{% static 'img/shopping_cart.png' %}"
+                 class="img-responsive" style="width: 10%; text-align: left; align: left;">
             {% with totail_items=cart|length %}
                 {% if cart|length > 0 %}
-                    Meu carrinho:
-                    <a href="{% url "cart:cart_detail" %}" style="color: #ffffff">
-                        {{ totail_items }} item{{ totail_items|pluralize }}, R$ {{ cart.get_total_price }}
+                    <a href="{% url "cart:cart_detail" %}" style="color: #ffffff; text-decoration: none;">
+                    Carrinho: {{ totail_items }} item{{ totail_items|pluralize }}, R$ {{ cart.get_total_price }}
                     </a>
-                    {% else %}
+                {% else %}
                     Carrinho vazio
                 {% endif %}
             {% endwith %}
