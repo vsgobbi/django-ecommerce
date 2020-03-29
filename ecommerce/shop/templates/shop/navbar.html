@@ -1,89 +1,70 @@
 {% load static %}
 
-<!--<nav class="navbar navbar-default navbar-fixed-top" role="navigation"-->
-<!--     style="margin-bottom: 0px; background-color: #5AC8FA;">-->
-<!--  <div class="container-fluid">-->
-<!--    <div class="navbar-header">-->
-<!--      <a class="navbar-brand" href="/index" style="color: #ffffff">Início</a>-->
-<!--      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">-->
-<!--        <span class="sr-only">Toggle navigation</span>-->
-<!--        <span class="icon-bar"></span>-->
-<!--        <span class="icon-bar"></span>-->
-<!--        <span class="icon-bar"></span>-->
-<!--      </button>-->
-<!--    <a class="navbar-brand" href="{% url 'shop:product_list' %}" style="color: #ffffff"></a>-->
-<!--  </div>-->
-
-
-<!--  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"-->
-<!--       style="margin-bottom: 40px; background-color: #5AC8FA;" aria-labelledby="dropdown02">-->
-
-<!--    <ul class="nav navbar-nav navbar-left">-->
-<!--      <li class="dropdown">-->
-<!--          {% if request.user.is_authenticated %}-->
-<!--          <font color="white">Logado como: </font>-->
-<!--        <a href="#" class="dropdown-toggle" data-toggle="dropdown"-->
-<!--           style="color: #ffffff">{{ request.user.username }}<b class="caret"></b></a>-->
-<!--          <button class="dropdown-btn">Dropdown-->
-<!--                <i class="fa fa-caret-down"></i>-->
-<!--          </button>-->
-
-<!--        <ul class="dropdown-menu"-->
-<!--            style="margin-bottom: 40px; background-color: #5AC8FA;" aria-labelledby="dropdown03">-->
-
-<!--        <li><a href="">logout</a></li>-->
-<!--          {% else %}-->
-<!--        <li class="divider"></li>-->
-<!--        <li><a href="#" style="color: #ffffff">Log in</a></li>-->
-<!--       <li><a href="#" style="color: #ffffff">Cadastro</a></li>-->
-<!--      </ul>-->
-<!--       {% endif %}-->
-<!--      </li>-->
-<!--    </ul>-->
-<!--  </div>&lt;!&ndash; /.navbar-collapse &ndash;&gt;-->
-<!--  </div>-->
-<!--</nav>-->
-
-
-<nav class="navbar navbar-expand-sm navbar-dark"
-  style="background-color: #5AC8FA;">
+<nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #5AC8FA;">
 
   <button class="navbar-toggler" type="button" data-toggle="collapse"
           data-target="#navbarsExample03" aria-controls="navbarsExample03"
           aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+      <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarsExample03">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="/sales">Promoções <span class="sr-only">(current)</span></a>
-      </li>
-      {% with totail_items=cart|length %}
-        {% if cart|length > 0 %}
-      <li class="nav-item active">
-        <a class="nav-link" href="{% url "cart:cart_detail" %}" style="color: #ffffff">
-        Carrinho({{totail_items}})</a>
-      </li>
+
+  <div class="collapse navbar-collapse">
+      <ul class="navbar-nav mr-auto toggle">
+          <li class="nav-item active">
+              <a class="nav-link active" href="/"><i class="fa fa-fw fa-home"></i>Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="/sales"><i class="fa fa-fw fa-dollar"></i>Promoções</a>
+          </li>
+        <li>
+              <a class="nav-link" href="#"><i class="fa fa-fw fa-envelope"></i>Contato</a>
+        </li>
+          {% with totail_items=cart|length %}
+          {% if cart|length > 0 %}
+          <li class="nav-item active">
+              <a class="nav-link" href="{% url "cart:cart_detail" %}" style="color: #ffffff">
+              Meu Carrinho({{totail_items}})</a>
+          </li>
           {% else %}
-        <li class="nav-item"></li>
-        {% endif %}
-      {% endwith %}
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle"
-           href="#" id="dropdown03"
-           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Minha conta</a>
-        <div class="dropdown-menu" aria-labelledby="dropdown03">
-          <a class="dropdown-item" href="/auth">Login</a>
-          <a class="dropdown-item" href="/register">Cadastro</a>
-          <a class="dropdown-item" href="#">Logout</a>
-        </div>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-md-0">
-    <input class="form-control" type="text" placeholder="Procurar" style="color: rgba(0, 0, 0, 0.5); opacity: 0.7">
-    </form>
+          <li class="nav-item active">
+              <a class="nav-link fa fa-fw fa-envelope" href="/contact">Contato <span class="sr-only">(current)</span></a>
+              <a href="#"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+          </li>
+          <li class="nav-item"></li>
+          {% endif %}
+          {% endwith %}
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle"
+                 href="#" id="dropdown03"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Minha Conta</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown03">
+                  <a class="dropdown-item" href="/auth">Login</a>
+                  <a class="dropdown-item" href="/register">Cadastro</a>
+                  <a class="dropdown-item" href="/logout">Logout</a>
+              </div>
+          </li>
+      </ul>
+
+      <form class="form-inline my-2 my-md-0" method="get" action=".">
+               <input class="form-control" type="text" placeholder="Procurar item..."
+                      style="max-width: 200px; max-height: 40px; color: rgba(0, 0, 0, 0.5); opacity: 0.7;">
+          <table>
+            <tr>
+                <td>&nbsp;</td>
+                <td>
+                    <input type="submit" style="position: absolute; left: -9999px" tabindex="-1"/>
+                </td>
+            </tr>
+          </table>
+            {% if query %}
+                {{ form.as_table }}
+            <h3>Results</h3>
+              {% for result in page.object_list %}
+                <p>{{ result.object.title }}</p>
+              {% empty %}
+                <p>Nenhum produto encontrado</p>
+              {% endfor %}
+            {% endif %}
+      </form>
   </div>
 </nav>

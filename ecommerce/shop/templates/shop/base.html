@@ -6,16 +6,16 @@
     <title>{% block title %}Meu e-commerce{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 {% include 'shop/navbar.html' %}
 
 <div class="container">
-    <div class="row" style="margin-top: 3%; margin-left: 55%;">
+    <div class="row" style="margin-top: 3%; margin-left: 70%;">
          <button class="btn btn-info pull-right menu" style="max-width: 300px; text-align: center;">
-            <img src="{% static 'img/shopping_cart.png' %}"
-                 class="img-responsive" style="width: 10%; text-align: left; align: left;">
-            {% with totail_items=cart|length %}
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+             {% with totail_items=cart|length %}
                 {% if cart|length > 0 %}
                     <a href="{% url "cart:cart_detail" %}" style="color: #ffffff; text-decoration: none;">
                     Carrinho: {{ totail_items }} item{{ totail_items|pluralize }}, R$ {{ cart.get_total_price }}
