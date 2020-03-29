@@ -1,10 +1,10 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Category, Product
+from shop.models import Category, Product
 from cart.forms import CartAddProductForm
 
 
-def sales_list(request, category_slug=None):
-    category = None
+def sales_list(request, category_slug="promocao"):
+    category = [Category.name == "sales" or None]
     categories = Category.objects.all()
     products = Product.objects.filter(available=True)
 

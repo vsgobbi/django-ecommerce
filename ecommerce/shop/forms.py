@@ -11,4 +11,3 @@ class SearchProductForm(forms.Form):
 
     name = forms.CharField(label=translate("Nome"), max_length=100)
     description = forms.CharField(label=translate("Descrição"), max_length=100)
-
