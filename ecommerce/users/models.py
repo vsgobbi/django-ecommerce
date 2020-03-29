@@ -1,8 +1,11 @@
+import logging
 from django.core.exceptions import ValidationError
 from django.utils.translation import ugettext_lazy as translate
 from django.db import models
 from datetime import datetime, timedelta
 from re import match
+
+logger = logging.getLogger(__name__)
 
 
 def validate_cpf(cpf):
@@ -25,13 +28,13 @@ def validate_phone_number(phone_number):
 
 def validate_birthdate(birthdate):
     today = datetime.today()
-    minimumAccept = today - timedelta(days=365*18)
+    minimumAccept = (today - timedelta(days=365*18)).date()
     try:
-        birthdatetime = datetime.strptime(birthdate, "%d/%m/%Y")
-        if birthdatetime > minimumAccept:
+        if birthdate > minimumAccept:
             raise ValidationError(translate("Usuário deve ser maior de idade!"))
-    except:
-        raise ValidationError(translate("Data de nascimento inválida"))
+    except Exception as error:
+        logger.warning("Erro ao validar data de nascimento, {}".format(error))
+        raise ValidationError(translate("Data de nascimento inválida!"))
 
 
 GENDER_CHOICES = (
