@@ -16,6 +16,8 @@
 ## Run django migration
 > cd ecommerce/
 > python manage.py migrate
+## or:
+> python manage.py migrate --run-syncdb
 ## Create django administrator 
 > python manage.py createsuperuser
 ## Run django environment
