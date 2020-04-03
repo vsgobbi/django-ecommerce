@@ -93,4 +93,3 @@ class Users(models.Model):
 
     def __str__(self):
         return "{} - {} - {} - {}".format(self.login, self.name, self.last_name, self.email)
-
