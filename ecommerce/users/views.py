@@ -14,7 +14,7 @@ def form_login(request):
     if request.method == "POST":
         form = SignIn(request.POST)
     else:
-        form = UserRegisterForm()  # redireciona o usuario nao existente para cadastro
+        form = UserRegisterForm()
         render(request, "register/signup.html", {"form": form})
     return render(request, "register/login.html", {"form": form})
 
@@ -30,7 +30,6 @@ def register_user(request):
             return render(request, "register/registered.html", {"user": user})
 
     else:
-        messages.warning(request, translate("Não foi possível criar a conta!"))
         form = UserRegisterForm()
 
     return render(request, "register/signup.html", {"form": form})
