@@ -1,5 +1,14 @@
 from django.db import models
 from shop.models import Product
+from datetime import date, timedelta
+from django.utils.translation import ugettext_lazy as translate
+
+
+PAYMENT_CHOICES = (
+    ("Charge", translate("Boleto")),
+    ("Credit Card", translate("Cartão de Crédito")),
+    ("Transfer", translate("Depósito Bancário")),
+)
 
 
 class Order(models.Model):
@@ -34,3 +43,11 @@ class OrderItem(models.Model):
 
     def get_cost(self):
         return self.price * self.quantity
+
+
+class PaymentMethod(models.Model):
+    order = models.ForeignKey(Order, related_name='items', on_delete=models.CASCADE)
+    method = models.CharField(choices=PAYMENT_CHOICES, default="Charge", max_length=1)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    quantity = models.PositiveIntegerField(default=1)
+    dueDate = models.DateField(default=date.today()+timedelta(days=3))
