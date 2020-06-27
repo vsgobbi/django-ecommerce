@@ -1,4 +1,4 @@
-Django==3.0.4
+Django==3.0.7
 django-db-log==2.2.1
 django-secure==1.0.1
 django-sslserver==0.20
